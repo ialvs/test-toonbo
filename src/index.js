@@ -9,15 +9,10 @@ app.get("/", (_,res) => {
     const data = getTextMessageInput(process.env.RECIPIENT_WAID, 'Conversão bem sucedida');
     
     const result = sendMessage(data)
-    .then(function (response) {
-      //response.redirect('/');
-      //response.sendStatus(200);
-      console.log(response)
+    .then(function () {
       return 200
     })
-    .catch(function (error) {
-      //console.log(error);
-      //console.log(error.response.data);
+    .catch(function () {
       return 500
     });
     return res.send().status(result)
